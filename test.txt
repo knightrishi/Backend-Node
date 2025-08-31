@@ -1,0 +1,2 @@
+Use let (or const) → safer, block-scoped, no weird hoisting issues
+ Avoid var unless you’re dealing with legacy code.
