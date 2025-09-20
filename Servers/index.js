@@ -3,9 +3,9 @@ const fs = require("fs");
 const url = require("url"); //it is use for parsing the URL
 
 const myServer = http.createServer((req, res) => {
-  const log = `${Date.now()} :${req.url} New Req Recieved.\n`;
+  const log = `${Date.now()} :${req.url} ${req.method} New Req Recieved.\n`;
   const myUrl = url.parse(req.url,true);
-  console.log(myUrl);
+  
 
   if (req.url === "/favicon.ico") return res.end();
   fs.appendFile("log1.txt", log, (err, data) => {
