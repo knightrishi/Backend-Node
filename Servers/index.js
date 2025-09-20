@@ -4,19 +4,20 @@ const url = require("url"); //it is use for parsing the URL
 
 const myServer = http.createServer((req, res) => {
   const log = `${Date.now()} :${req.url} New Req Recieved.\n`;
-  const myUrl = url.parse(req.url);
+  const myUrl = url.parse(req.url,true);
   console.log(myUrl);
 
   if (req.url === "/favicon.ico") return res.end();
   fs.appendFile("log1.txt", log, (err, data) => {
     //Always use non blocking function
-    switch (req.url) {
+    switch (myUrl.pathname) {
       case "/":
         res.end("This is the Home Page");
         break;
 
       case "/about":
-        res.end("I am Arnav Singh and currently learning NodeJS.");
+        const username=myUrl.query.myname;
+        res.end(`Hi ${username},\nHow are you?`);
         break;
 
       default:
