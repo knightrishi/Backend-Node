@@ -1,0 +1,71 @@
+An API is a set of rules that allow different software applications to communicate with each other .Think of it as a bridge that connects two systems—such as a client and a server—and enables them to work together seamlessly.
+
+APIs help developers to create software programs more easily. Instead of writing complex code from scratch, they can call APIs that already provide the functions they need. For example, if a developer wants to display a weather report, they can use an API to get the data instead of creating the entire system to gather weather data themselves.
+
+APIs are also crucial in building modern websites, where heavy data transfers happen between the client (user) and the server.
+
+The difference between an API and a web application is that API allows two-way communication and web applications are just a way for users to interact through a web browser. A web application may have an API to complete the requests.
+
+
+RestFul are the Standards or best practices use in API. 
+
+rver-Client Architecture 🧑‍💻↔️📱
+The first fundamental rule of RESTful APIs is the server-client architecture [02:40].
+This means:
+
+The server and client are independent machines and should not be dependent on each other.
+
+Communication: The client sends a request, and the server returns a response [01:50].
+
+Response Format: The response format can vary (text, image, HTML, JSON).
+
+HTML vs. JSON Responses 🤔
+Server-Side Rendering (SSR) with HTML:
+
+The server generates an HTML document and sends it to the client [04:02].
+
+Advantage: Fast for browser-based clients as the HTML is rendered directly on the screen without extra processing [05:09].
+
+Disadvantage: Not suitable for non-browser clients (like mobile apps or smart devices) as they cannot render HTML [04:24].
+
+Dependency: The client becomes dependent on the server for how the data is displayed [04:43].
+
+JSON (JavaScript Object Notation):
+
+The server sends raw data in a key-value pair format (JSON) [05:28].
+
+Advantage: The client receives raw data and can independently process and render it on its own screen [06:11]. This is ideal for cross-platform applications (web, mobile, smart devices) [07:56].
+
+Disadvantage: Can be slower than SSR because the client needs to fetch the data and then render it [14:41].
+
+Use Case: When the client is a browser and you know it will always be a browser, sending HTML is a good practice for speed. However, for cross-platform applications where different clients will consume the same data, JSON is preferred [07:16].
+
+Respecting HTTP Methods 🚦
+The second crucial rule is to always respect all HTTP methods [08:25]. Each HTTP method has a specific intention, and a RESTful API should honor these intentions.
+
+Common HTTP Methods and Their Intentions:
+GET: Used to retrieve data [08:49].
+
+Example: GET /users should return user data [09:12].
+
+POST: Used to create new data [08:55].
+
+Example: POST /users should handle the creation of a new user [09:39].
+
+PUT/PATCH: Used to update existing data [08:55].
+
+PATCH is generally used for partial updates [09:59].
+
+Example: PATCH /users should update user information [10:03].
+
+DELETE: Used to remove data [08:55].
+
+Example: DELETE /users/{id} should delete a specific user.
+
+Why Respect HTTP Methods? 🎯
+Many developers incorrectly use POST for all operations (create, update, delete) and GET only for retrieval [11:50].
+
+Following the intended use of each HTTP method creates a clear, predictable, and maintainable API architecture [12:30]. This avoids confusion and adheres to best practices [11:20].
+
+Conclusion ✅
+By following these two main principles—the server-client architecture with appropriate data rendering (HTML for browser-only, JSON for cross-platform) and respecting HTTP methods—you can build a robust and truly RESTful API.
