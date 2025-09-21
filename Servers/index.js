@@ -1,8 +1,9 @@
-const http = require("http"); //http does parse req.url and does not diff between path and query paramete
+//const http = require("http"); //http does parse req.url and does not diff between path and query paramete
 /*
 const fs = require("fs");
 const url = require("url"); //it is use for parsing the URL
 */
+
 const express=require("express")
 
 const app=express();//just like the myHandler Function jo ki internally sab hanel karta hai
@@ -14,12 +15,20 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
   res.end("This is the Arnav Singh and You are on His Server");
 });
-const myServer = http.createServer(app);
+app.listen(7070,()=>{
+ console.log("Server Chalu start hogaya");
+});
 
 
+
+//express is just a web framework and internally vo HTTP module ko hi use karti hai
+
+
+/*const myServer = http.createServer(app);
 myServer.listen(7070, () => {
   console.log("Server Chalu start hogaya");
 });
+*/
 
 
 //Ye handler function mai manually mere ko batan apad raha tha ki kya karna hai kaise karna hai server ko baar baar swiotch case lagana pad raha tha jo ki utna fessible nahi hai isliye EXPRESS aya jo ki isko asan banata hai Vo just like this handler fn behave karta hai
