@@ -3,11 +3,14 @@ let users = require("./MOCK_DATA.json");
 const fs=require('fs');
 const { json } = require("stream/consumers");
 const app = express();
-
+const PORT = 7070;
 
 //MiddleWare --(like plugins)
 app.use(express.urlencoded({ extended : false}));
-const PORT = 7070;
+
+
+
+
 
 app.get("/user", (req, res) => {
     const html=`

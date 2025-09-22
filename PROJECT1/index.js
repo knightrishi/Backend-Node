@@ -7,7 +7,22 @@ const app = express();
 
 //MiddleWare --(like plugins)
 app.use(express.urlencoded({ extended : false}));
+
+app.use((req,res,next)=>{
+    fs.appendFile('log.txt', `${Date.now()} :${req.method} :${req.path} \n` ,(err,data) => {
+
+    next();
+    })
+});
+
+// app.use((req,res,next)=>{
+//     // console.log("I am in Middleware 2");
+//     // next();
+//    // return res.end("Fuck OFF")
+// });
+
 const PORT = 7070;
+
 
 app.get("/user", (req, res) => {
     const html=`
