@@ -1,16 +1,19 @@
 const express = require("express");
-const users = require("./MOCK_DATA.json");
-
+let users = require("./MOCK_DATA.json");
+const fs=require('fs');
+const { json } = require("stream/consumers");
 const app = express();
 
+
+//MiddleWare --(like plugins)
+app.use(express.urlencoded({ extended : false}));
 const PORT = 7070;
 
 app.get("/user", (req, res) => {
     const html=`
     <ul>
     ${users.map((user)=> `<li>${user.first_name} ${user.last_name} </li>`).join("")}
-    
-    </ul>
+        </ul>
 
     `
     res.send(html);
@@ -34,15 +37,26 @@ app.route("/api/user/:id")
 .patch( (req, res) => {
  //TODO:Edit the user with id
     return res.json({status :"pending"});
-}).delete( (req, res) => {
- //TODO:Delete the user with id
-    return res.json({status :"pending"});
+})
+.delete( (req, res) => {
+    const id=Number(req.params.id)
+    users=users.filter(user=> user.id!=id);
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
+return res.json({status :"done" ,id:id });
+    })
+    
 });
 
 
 app.post("/api/user", (req, res) => {
- //TODO:Create New USer
-    return res.json({status :"pending"});
+const body=req.body;
+//console.log(body);
+
+    users.push({...body ,id:users.length+1});
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
+return res.json({status :"success" , id: users.length});
+    });
+    
 });
 
 
