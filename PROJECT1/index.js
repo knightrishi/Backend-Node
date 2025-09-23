@@ -39,12 +39,14 @@ app.get("/", (req, res) => {
   res.end("This is the Home PAGE");
 });
 app.get("/api/user", (req, res) => {
+    res.setHeader('X-myName', "Arnav Singh");//X for custom header
  return res.json(users);
 });
 
 //Dynamic Path Parameter
 app.route("/api/user/:id")
 .get( (req, res) => {
+    
  const id=Number(req.params.id);
  const user=users.find((user)=>user.id===id)
  return res.json(user);
