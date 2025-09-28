@@ -6,12 +6,28 @@ const app = express();
 const PORT = 7072;
 const { connectMongo } = require('./connect');
 const URL = require('./models/url');
+const path=require('path')
+const staticRoute=require('./routes/staticRouter')
+
 
 //to parse body
 app.use(express.json());
 
-app.use('/test', (req,res) => {
-    return res.end("<h1>Hey From Server</h1><h2>Currently learning ServerSide Rendering")
+app.set('view engine' ,'ejs');
+//ejs files are basicall html files
+
+app.set("views", path.resolve("./views"));
+
+
+app.use('/',staticRoute);
+
+app.use('/test', async (req,res) => {
+    const allURLs= await URL.find({})
+
+
+    return res.render('home',{
+        urls:allURLs,
+    })
 })
 
 app.use("/url", urlRoute);
