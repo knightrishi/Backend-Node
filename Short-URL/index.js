@@ -13,6 +13,10 @@ const staticRoute=require('./routes/staticRouter')
 //to parse body
 app.use(express.json());
 
+//to parse form data
+
+app.use(express.urlencoded({ extended:false }))
+
 app.set('view engine' ,'ejs');
 //ejs files are basicall html files
 
