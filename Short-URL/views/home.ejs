@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        h1{
+            color: aliceblue;
+        }
+        label{
+            color: azure;
+        }
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #833AB4;
+background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(17, 183, 186, 1) 49%, rgba(252, 176, 69, 1) 100%);
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoem Page</title>
 </head>
 <body>
-    <h1>HEY FROM THE SERVER. I AM INSIDE A <I>EJS</I> FILE</h1>
+    <h1>URL Shortner</h1>
 
+        <% if (locals.id) { %>
+         <p>
+  URL Generated: http://localhost:7072/<%= id %>
+</p>
+        <% } %>
+
+<form method="post" action="/url" >
+    <label >
+        Enter Your URL:
+    </label>
+    <input type="text" 
+    name="url" 
+    placeholder="https://example.com"/>
+
+    <button type="submit">Generate</button>
+</form>
 
 </body>
 </html>
