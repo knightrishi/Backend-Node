@@ -10,6 +10,10 @@ const URL = require('./models/url');
 //to parse body
 app.use(express.json());
 
+app.use('/test', (req,res) => {
+    return res.end("<h1>Hey From Server</h1><h2>Currently learning ServerSide Rendering")
+})
+
 app.use("/url", urlRoute);
 
 app.get('/:shortId', async (req, res) => {
