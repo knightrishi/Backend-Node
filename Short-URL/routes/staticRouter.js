@@ -6,6 +6,15 @@ router.get('/', (req,res) => {
     return res.render("home")
 })
 
+
+router.get('/signup', (req,res) => {
+    return res.render("signup")
+})
+
+router.get('/login', (req,res) => {
+    return res.render("login")
+})
+
 // why ejs file in views work in rours folder's file without requiring
 // // Tells Express to use the EJS templating engine
 // app.set('view engine', 'ejs');

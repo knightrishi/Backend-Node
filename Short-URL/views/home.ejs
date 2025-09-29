@@ -21,11 +21,14 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(17, 183, 186, 
 <body>
     <h1>URL Shortner</h1>
 
-        <% if (locals.id) { %>
-         <p>
-  URL Generated: http://localhost:7072/<%= id %>
-</p>
-        <% } %>
+       <% if (locals.id) { %>
+    <p>
+        URL Generated: 
+        <a href="http://localhost:7072/<%= id %>" target="_blank">
+            http://localhost:7072/<%= id %>
+        </a>
+    </p>
+<% } %>
 
 <form method="post" action="/url" >
     <label >
