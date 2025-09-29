@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        h1{ color: aliceblue; }
+        label{ color: azure; }
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(90deg, rgb(58, 63, 205) 0%, rgb(217, 85, 175) 49%, rgb(252, 100, 69) 100%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/user/login" method="post">
+    
+        <label>Enter your Email</label>
+        <input type="email" name="email" required />
+        <br><br><br><br>
+
+        <label>Enter your Password</label>
+        <input type="password" name="password" required />
+        <br><br><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
