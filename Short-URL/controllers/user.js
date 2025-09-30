@@ -24,9 +24,9 @@ async function handleUserLogin(req,res) {
     })
 
     const sessionID=uuidv4();
-    setUser(sessionID,user);
+    const token=setUser(sessionID);
 
-    res.cookie("uid", sessionID);
+    res.cookie("uid", token);
 
 
     //Jaise hi submit  buttyon of signup page pe click karuga to yaha pe redirect kar dega
