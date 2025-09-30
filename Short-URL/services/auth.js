@@ -1,13 +1,18 @@
 //This is basicallly tghe diary of the parking employee 
 
-const sessionIDMap=new Map();
+const jwt=require('jsonwebtoken')
+const secret='AZ@12PQ#3MV$4'
+function setUser(user){
+ return jwt.sign({
+    _id:user._id,
+    email:user.email,
 
-function setUser(id,user){
-    sessionIDMap.set(id, user);
+ },secret);
 }
 
-function getUser(id){
-    return sessionIDMap.get(id);
+function getUser(token){
+    if(!token) return null;
+    return jwt.verify(token,secret);
 }
 
 module.exports={
