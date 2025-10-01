@@ -1,4 +1,5 @@
 //This is basicallly tghe diary of the parking employee 
+//In this the diary is being removed with a stamp on the ticket i.e Stateless
 
 const jwt=require('jsonwebtoken')
 const secret='AZ@12PQ#3MV$4'
