@@ -1,0 +1,1 @@
+A cookie is basically a small piece of data that the server gives to the client (browser). The browser automatically sends it back to the server with every request to the same domain.
